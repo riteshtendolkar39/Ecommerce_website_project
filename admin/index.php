@@ -73,17 +73,17 @@
         <!--forth child-->
         <div class="container my-3">
             <?php
-            if(isset($_GET['insert_category'])){
+            if (isset($_GET['insert_category'])) {
                 include('insert_category.php');
             }
-            if(isset($_GET['insert_subcat'])){
+            if (isset($_GET['insert_subcat'])) {
                 include('insert_subcat.php');
             }
             ?>
         </div>
         <!--last child-->
         <div class="bg-info text-white py-3 text-center footer">
-        <p>Copyright © Books 2024 Developed By: Ritesh & Vinod</p>
+            <p>Copyright © Books 2024 Developed By: Ritesh & Vinod</p>
         </div>
     </div>
     <!-- bootstrap js link-->

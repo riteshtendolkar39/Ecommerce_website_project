@@ -92,7 +92,7 @@ include('include/connect.php');
             $category_title = $row_data['category_title'];
             $category_id = $row_data['category_id'];
             echo "<li class='nav-item'>
-            <a href='#' class='nav-link text-light '>$category_title</a>
+            <a href='index.php?category=$category_id' class='nav-link text-light '>$category_title</a>
               </li>";
           }
           ?>
@@ -111,7 +111,7 @@ include('include/connect.php');
             $subcat_title = $row_data['subcat_title'];
             $subcat_id = $row_data['subcat_id'];
             echo "<li class='nav-item'>
-            <a href='#' class='nav-link text-light '>$subcat_title</a>
+            <a href='index.php?sub-category=$subcat_id' class='nav-link text-light '>$subcat_title</a>
             </li>";
           }
           ?>
