@@ -14,7 +14,7 @@ if (isset($_POST['insert_product'])) {
     $product_image = $_FILES['product_image']['name'];
 
     //accessing image temporary name
-    $temp_image = $_FILES['product_image']['name'];
+    $temp_image = $_FILES['product_image']['tmp_name'];
 
     //checking empty condition
     if ($product_title == '' or $description == '' or $keyword == '' or $author == '' or $product_category == '' or $product_subcategory == '' or $price == '' or $product_status == '' or $product_image == '') {
@@ -108,8 +108,8 @@ if (isset($_POST['insert_product'])) {
             </div>
             <!-- images -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="images" class="form-label">Product image1</label>
-                <input type="file" class="form-control" name="product_image" id="images">
+                <label for="product_image" class="form-label">Product image</label>
+                <input type="file" class="form-control" name="product_image" id="product_image" required="required">
             </div>
 
             <!-- price -->
