@@ -39,7 +39,10 @@ include('functions/common_function.php');
               <input type="submit" class="btn btn-outline-success" value="search" name="search_data_product">
             </form>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="display_all.php">All Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" aria-disabled="true">About</a>
@@ -119,15 +122,12 @@ include('functions/common_function.php');
 
 
     <!--last child-->
-    <div class="bg-info text-center p-3">
-      <p>Copyright © Books 2024 Developed By: Ritesh & Vinod</p>
-    </div>
-  </div>
+    <?php include('./footer/footer.php') ?>
 
 
 
-  <!-- bootstrap js link-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- bootstrap js link-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

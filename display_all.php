@@ -34,7 +34,7 @@ include('functions/common_function.php');
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <form class="d-flex" action="" method="get">
+                        <form class="d-flex" action="search_product.php" method="get">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
                             <input type="submit" class="btn btn-outline-success" value="search" name="search_data_product">
                         </form>
@@ -112,7 +112,7 @@ include('functions/common_function.php');
                     <!-- fetching products -->
                     <?php
                     // calling function
-                    search_products();
+                    get_all_products();
                     get_unqiue_category();
                     get_unqiue_subcategory();
                     ?>
