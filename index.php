@@ -74,6 +74,7 @@ include('functions/common_function.php');
       <p>Shop now!</p>
     </div>
 
+
     <!--third child-->
     <!--products-->
     <div class="row mt-5">
@@ -100,7 +101,7 @@ include('functions/common_function.php');
           <?php
           // calling function
           getsubcategories();
-?>
+          ?>
         </ul>
       </div>
       <div class="col-md-10">
@@ -109,10 +110,13 @@ include('functions/common_function.php');
           <?php
           // calling function
           getproducts();
+          get_unqiue_category();
+          get_unqiue_subcategory();
           ?>
         </div>
       </div>
     </div>
+
 
     <!--last child-->
     <div class="bg-info text-center p-3">
