@@ -366,4 +366,22 @@ if(isset($_GET['add_to_cart'])){
 }
 }
 
+//function to get cart item numbers
+function cart_item(){
+  if(isset($_GET['add_to_cart'])){
+    global $con;
+    $get_ip_address = getIPAddress();
+    $select_query="Select * from `cart_details` where ip_address='$get_ip_address'";
+    $result_query = mysqli_query($con, $select_query);
+    $cart_items = mysqli_num_rows($result_query);
+    }
+    else{
+      global $con;
+      $get_ip_address = getIPAddress();
+      $select_query="Select * from `cart_details` where ip_address='$get_ip_address'";
+      $result_query = mysqli_query($con, $select_query);
+      $cart_items = mysqli_num_rows($result_query);    }
+      echo "$cart_items";
+  }
+
 ?>
