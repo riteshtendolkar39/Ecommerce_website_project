@@ -70,6 +70,9 @@ include('functions/common_function.php');
       </div>
     </nav>
 
+<!-- calling cart function -->
+<?php cart(); ?>
+
 
     <!--second child-->
     <div class="title">
@@ -115,6 +118,8 @@ include('functions/common_function.php');
           getproducts();
           get_unqiue_category();
           get_unqiue_subcategory();
+          // $ip = getIPAddress();
+          // echo 'User Real IP Address - ' . $ip;
           ?>
         </div>
       </div>

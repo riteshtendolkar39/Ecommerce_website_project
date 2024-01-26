@@ -70,6 +70,8 @@ include('functions/common_function.php');
             </div>
         </nav>
 
+<!-- calling cart function -->
+<?php cart(); ?>
 
         <!--second child-->
         <div class="title">
