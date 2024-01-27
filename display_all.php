@@ -62,8 +62,7 @@ include('functions/common_function.php');
 
                     </ul>
                     <form class="d-flex" role="login">
-                        <a class="nav-link disabled" aria-disabled="true">
-                            <button class="btn btn-outline-success" type="submit">Login</button></a>
+                        <button class="btn btn-outline-success"><a class="nav-link" href="./user/user_login.php">Login</a></button>
                     </form>
                     </ul>
                 </div>

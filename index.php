@@ -51,7 +51,7 @@ include('functions/common_function.php');
               <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <a class="nav-link" href="./user/user_registration.php">Register</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
@@ -59,19 +59,17 @@ include('functions/common_function.php');
             <li class="nav-item">
               <a class="nav-link" href="#">Total Price: <?php total_cart_price(); ?>/-</a>
             </li>
-
           </ul>
           <form class="d-flex" role="login">
-            <a class="nav-link disabled" aria-disabled="true">
-              <button class="btn btn-outline-success" type="submit">Login</button></a>
+            <button class="btn btn-outline-success"><a class="nav-link" href="./user/user_login.php">Login</a></button>
           </form>
           </ul>
         </div>
       </div>
     </nav>
 
-<!-- calling cart function -->
-<?php cart(); ?>
+    <!-- calling cart function -->
+    <?php cart(); ?>
 
 
     <!--second child-->
