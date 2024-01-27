@@ -27,7 +27,7 @@ include('functions/common_function.php');
     <nav class="navbar navbar-expand-lg bg-info">
       <div class="container-fluid">
         <img src="./images/logo.jpg" alt="" class="logo">
-        <a class="navbar-brand" href="#">Books</a>
+        <a class="navbar-brand ms-2" href="#">Books</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,7 +54,7 @@ include('functions/common_function.php');
               <a class="nav-link" href="#">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
+              <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Total Price: <?php total_cart_price(); ?>/-</a>
