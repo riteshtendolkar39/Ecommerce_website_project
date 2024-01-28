@@ -19,10 +19,10 @@
             <div class="col-lg-12 col-xl-6">
                 <!-- form -->
                 <form action="" method="post" enctype="multipart/form-data">
-                    <!-- username fields -->
+                    <!-- email field -->
                     <div class="form-outline mb-4">
-                        <label for="user_username" class="form-label">Username</label>
-                        <input type="text" class="form-control" name="user_username" id="user_username" placeholder="Enter your username" autocomplete="off" required="required" />
+                        <label for="user_email" class="form-label">User Email</label>
+                        <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Enter your email" autocomplete="off" required="required" />
                     </div>
                     <!-- password field -->
                     <div class="form-outline mb-4">

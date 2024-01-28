@@ -79,11 +79,11 @@ include('../include/connect.php');
             <div class="col-md-12">
                 <div class="row">
                     <?php
-                    if(!isset($_SESSION['username'])){
+                    if(!isset($_SESSION['user_email'])){
                         include('./user_login.php');
                     }
                     else{
-                        include('payment.php');
+                        include('../payment.php');
                     }
                     ?>
                 </div>
