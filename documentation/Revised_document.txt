@@ -15,3 +15,7 @@ In project management, the “scope” refers to the specific goals, deliverable
 •	The project will address the need for advanced features such as diverse payment options, responsive web design. 
 •	Protecting customer data and ensuring secure transactions are critical issues that the project will address. 
 •	SQL injection attacks pose a significant threat to database security by manipulating SQL queries through user inputs.
+
+
+
+CSS Like HTML, CSS is not a programming language. It's not a markup language either. CSS is a style sheet language. CSS is what you use to selectively style HTML elements. CSS is a language that is used to style and layout web pages. It can change the appearance of elements such as fonts, colors, backgrounds, and more. It can also create animations and other decorative features. CSS works by applying rules to elements that match certain selectors. CSS can be written in external files, internal style blocks, or inline attributes.
