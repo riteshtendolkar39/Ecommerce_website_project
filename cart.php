@@ -26,6 +26,11 @@ include('functions/common_function.php');
             height: 80px;
             object-fit: contain;
         }
+        .logo{
+    width:3%;
+    height:3%;
+    border-radius:25px;
+}
     </style>
 </head>
 
@@ -36,7 +41,7 @@ include('functions/common_function.php');
         <nav class="navbar navbar-expand-lg bg-info">
             <div class="container-fluid">
                 <img src="./images/logo.jpg" alt="" class="logo">
-                <a class="navbar-brand ms-2" href="#">Books</a>
+                <a class="navbar-brand ms-2 text-secondary" href="index.php">Books</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -77,9 +82,8 @@ include('functions/common_function.php');
 
 
         <!--second child-->
-        <div class="title">
-            <h1>If you want to make intelligent, get books from here</h1>
-            <p>Shop now!</p>
+        <div class="text-center bg-light mt-5 text-primary">
+            <h1>Online Book Shop</h1>
         </div>
 
 

@@ -3,11 +3,6 @@
     padding:0;
     box-sizing: border-box;
 }
-.logo{
-    width:5%;
-    height:5%;
-    border-radius:15px;
-}
 .title{
     height:25vw;
     background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./book.jpg');
@@ -23,4 +18,9 @@
 .book-cover {
     object-fit: contain !important;
     height: auto !important;
+}
+.logo{
+    width:3%;
+    height:3%;
+    border-radius:25px;
 }

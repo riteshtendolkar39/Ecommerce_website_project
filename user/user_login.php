@@ -18,7 +18,7 @@
         <div class="row d-flex align-items-center justify-content-center mt-5">
             <div class="col-lg-12 col-xl-6">
                 <!-- form -->
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="" method="post">
                     <!-- email field -->
                     <div class="form-outline mb-4">
                         <label for="user_email" class="form-label">User Email</label>
@@ -41,3 +41,8 @@
 </body>
 
 </html>
+
+<!-- php code -->
+<?php 
+
+?>

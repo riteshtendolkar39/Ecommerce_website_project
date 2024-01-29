@@ -18,6 +18,13 @@ include('functions/common_function.php');
 
     <!--css files-->
     <link rel="stylesheet" href="style.css">
+    <style>
+        .logo{
+    width:3%;
+    height:3%;
+    border-radius:25px;
+}
+    </style>
 </head>
 
 <body>
@@ -27,7 +34,7 @@ include('functions/common_function.php');
         <nav class="navbar navbar-expand-lg bg-info">
             <div class="container-fluid">
                 <img src="./images/logo.jpg" alt="" class="logo">
-                <a class="navbar-brand" href="#">Books</a>
+                <a class="navbar-brand ms-2 text-secondary" href="index.php">Books</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
