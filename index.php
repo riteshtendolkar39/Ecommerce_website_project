@@ -1,6 +1,7 @@
 <?php
 include('include/connect.php');
 include('functions/common_function.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +25,9 @@ include('functions/common_function.php');
     height:3%;
     border-radius:25px;
 }
+body{
+            overflow-x:hidden;
+        }
   </style>
 </head>
 
@@ -80,6 +84,16 @@ include('functions/common_function.php');
 
 
     <!--second child-->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Welcome Guest</a>
+        </li>
+        <li class="nav-item">
+          <a href="./user/user_login.php/logout.php" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </nav> -->
     <div class="title">
       <h1>If you want to make intelligent, get books from here</h1>
       <p>Shop now!</p>

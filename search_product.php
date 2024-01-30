@@ -24,6 +24,9 @@ include('functions/common_function.php');
     height:3%;
     border-radius:25px;
 }
+body{
+            overflow-x:hidden;
+        }
     </style>
 </head>
 
