@@ -56,8 +56,8 @@ session_start();
 
                     </ul>
                     <form class="d-flex" role="login">
-                        <?php 
-                        if(!isset($_SESSION['user_email'])){
+                        <?php
+                        if (!isset($_SESSION['user_email'])) {
                             echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
                             </form>
                             </ul>
@@ -71,7 +71,7 @@ session_start();
                               </li>
                             </ul>
                           </nav>";
-                        }else{
+                        } else {
                             echo "
                             </form>
                             </ul>
@@ -89,7 +89,7 @@ session_start();
                             </ul>
                           </nav>";
                         }
-                        
+
                         ?>
                         <!-- <a class="nav-link disabled" aria-disabled="true">
                             <button class="btn btn-outline-success" type="submit">Login</button></a> -->
@@ -114,10 +114,9 @@ session_start();
             <div class="col-md-12">
                 <div class="row">
                     <?php
-                    if(!isset($_SESSION['user_email'])){
+                    if (!isset($_SESSION['user_email'])) {
                         include('./user_login.php');
-                    }
-                    else{
+                    } else {
                         include('payment.php');
                     }
                     ?>
