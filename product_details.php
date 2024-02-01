@@ -61,7 +61,7 @@ body{
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="./user/user_registration.php">Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
@@ -72,7 +72,42 @@ body{
 
                     </ul>
                     <form class="d-flex" role="login">
-                    <button class="btn btn-outline-success"><a class="nav-link" href="./user/user_login.php">Login</a></button>
+                    <?php 
+                        if(!isset($_SESSION['user_email'])){
+                            echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
+                            </form>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <ul class='navbar-nav me-auto'>
+                              <li class='nav-item'>
+                                <a href='#' class='nav-link'>Welcome Guest</a>
+                              </li>
+                            </ul>
+                          </nav>
+                            ";
+                        }else{
+                            echo "
+                            </form>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <ul class='navbar-nav me-auto'>
+                              <li class='nav-item'>
+                                <a href='#' class='nav-link'>Welcome Guest</a>
+                              </li>
+                              <li class='nav-item'>
+                                <a href='./user/logout.php' class='nav-link'>Logout</a>
+                              </li>
+                            </ul>
+                          </nav>";
+                        }
+                        
+                        ?>
                     </form>
                     </ul>
                 </div>

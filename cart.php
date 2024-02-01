@@ -1,6 +1,7 @@
 <?php
 include('include/connect.php');
 include('functions/common_function.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,8 +70,42 @@ include('functions/common_function.php');
 
                     </ul>
                     <form class="d-flex" role="login">
-                        <a class="nav-link disabled" aria-disabled="true" >
-                        <button class="btn btn-outline-success"><a class="nav-link" href="./user/user_login.php">Login</a></button>
+                    <?php
+            if (!isset($_SESSION['user_email'])) {
+                echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
+                
+                </form>
+                </ul>
+            </div>
+        </div>
+    </nav>
+                <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                <ul class='navbar-nav me-auto'>
+                  <li class='nav-item'>
+                    <a href='#' class='nav-link'>Welcome Guest</a>
+                  </li>
+                </ul>
+              </nav>";
+            } else {
+              echo "
+                            </form>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <ul class='navbar-nav me-auto'>
+                              <li class='nav-item'>
+                                <a href='#' class='nav-link'>Welcome Guest</a>
+                              </li>
+                              <li class='nav-item'>
+                                <a href='./user/logout.php' class='nav-link'>Logout</a>
+                              </li>
+                            </ul>
+                          </nav>";
+            }
+
+            ?>
                     </form>
                     </ul>
                 </div>
@@ -110,7 +145,7 @@ include('functions/common_function.php');
                                     <th>Remove</th>
                                     <th colspan='2'>Operations</th>
                                 </tr>
-                            </thead'";
+                             </thead>";
                                 while ($row = mysqli_fetch_array($result)) {
                                     $product_id = $row['product_id'];
                                     $select_products = "Select * from `products` where product_id=$product_id";
@@ -163,7 +198,7 @@ include('functions/common_function.php');
 
                         <?php
                         $get_ip_address = getIPAddress();
-                        $total_price = 0;
+                        // $total_price = 0;
                         $cart_query = "Select * from `cart_details` where ip_address='$get_ip_address'";
                         $result = mysqli_query($con, $cart_query);
                         $result_count = mysqli_num_rows($result);

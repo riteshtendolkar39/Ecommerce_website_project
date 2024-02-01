@@ -1,6 +1,7 @@
 <?php
 include('../include/connect.php');
 include('../functions/common_function.php');
+@session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +17,8 @@ include('../functions/common_function.php');
     <link rel="stylesheet" href="style.css">
 
     <style>
-        body{
-            overflow-x:hidden;
+        body {
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -42,7 +43,7 @@ include('../functions/common_function.php');
                     <!-- submit -->
                     <div class="mt-4 pt-2">
                         <input type="submit" class="bg-info py-2 px-3 border-0" name="user_login" value="Login">
-                        <p class="small mt-2 pt-1 fw-bold mb-0">Don't have an account?<a class="text-danger"href="user_registration.php"> Register</a></p>
+                        <p class="small mt-2 pt-1 fw-bold mb-0">Don't have an account?<a class="text-danger" href="user_registration.php"> Register</a></p>
                     </div>
                 </form>
             </div>
@@ -53,36 +54,35 @@ include('../functions/common_function.php');
 </html>
 
 <!-- php code -->
-<?php 
-if(isset($_POST['user_login'])){
-    $user_email=$_POST['user_email'];
-    $user_password=$_POST['user_password'];
-    $select_query="select * from `user_table` where user_email='$user_email'";
-    $result=mysqli_query($con,$select_query);
-    $row_count=mysqli_num_rows($result);
-    $row_data=mysqli_fetch_assoc($result);
-    $user_ip=getIPAddress();
+<?php
+if (isset($_POST['user_login'])) {
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+    $select_query = "select * from `user_table` where user_email='$user_email'";
+    $result = mysqli_query($con, $select_query);
+    $row_count = mysqli_num_rows($result);
+    $row_data = mysqli_fetch_assoc($result);
+    $user_ip = getIPAddress();
     //cart item
-    $select_query_cart="select * from `cart_details` where ip_address='$user_ip'";
-    $select_cart=mysqli_query($con,$select_query_cart);
-    $row_count_cart=mysqli_num_rows($select_cart);
-    if($row_count>0){
+    $select_query_cart = "select * from `cart_details` where ip_address='$user_ip'";
+    $select_cart = mysqli_query($con, $select_query_cart);
+    $row_count_cart = mysqli_num_rows($select_cart);
+    if ($row_count > 0) {
         $_SESSION['user_email'] = $user_email;
-        if(password_verify($user_password,$row_data['user_password'])){
-            if($row_count==1 and $row_count_cart==0){
+        if (password_verify($user_password, $row_data['user_password'])) {
+            if ($row_count == 1 and $row_count_cart == 0) {
                 $_SESSION['user_email'] = $user_email;
                 echo "<script>alert('Login Successful')</script>";
                 echo "<script>window.open('profile.php','_self')</script>";
-            }else{
+            } else {
                 $_SESSION['user_email'] = $user_email;
                 echo "<script>alert('Login Successful')</script>";
                 echo "<script>window.open('payment.php','_self')</script>";
             }
-        }
-        else{
+        } else {
             echo "<script>alert('Invalid Credentials')</script>";
         }
-    }else{
+    } else {
         echo "<script>alert('Invalid Credentials')</script>";
     }
 }

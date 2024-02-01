@@ -1,6 +1,7 @@
 <?php
 include('../include/connect.php');
 include('../functions/common_function.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,6 +110,7 @@ if (isset($_POST['user_register'])) {
     $rows = mysqli_num_rows($result_cart);
     if ($rows > 0) {
         $_SESSION['user_email'] = $user_email;
+        $_SESSION['username'] = $user_username;
         echo "<script>alert('You have items in your cart')</script>";
         echo "<script>window.open('checkout.php','_self')</script>";
     } else {

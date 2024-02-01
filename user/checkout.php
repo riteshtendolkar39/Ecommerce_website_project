@@ -1,6 +1,6 @@
 <?php
 include('../include/connect.php');
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ include('../include/connect.php');
         <!--first child-->
         <nav class="navbar navbar-expand-lg bg-info">
             <div class="container-fluid">
-                <img src="./images/logo.jpg" alt="" class="logo">
+                <img src="../images/logo.jpg" alt="" class="logo">
                 <a class="navbar-brand ms-2" href="#">Books</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,10 +39,10 @@ include('../include/connect.php');
                             <input type="submit" class="btn btn-outline-success" value="search" name="search_data_product">
                         </form>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="display_all.php">All Products</a>
+                            <a class="nav-link active" aria-current="page" href="../display_all.php">All Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true">About</a>
@@ -51,13 +51,48 @@ include('../include/connect.php');
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="./user_registration.php">Register</a>
                         </li>
 
                     </ul>
                     <form class="d-flex" role="login">
-                        <a class="nav-link disabled" aria-disabled="true">
-                            <button class="btn btn-outline-success" type="submit">Login</button></a>
+                        <?php 
+                        if(!isset($_SESSION['user_email'])){
+                            echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
+                            </form>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <ul class='navbar-nav me-auto'>
+                              <li class='nav-item'>
+                                <a href='#' class='nav-link'>Welcome Guest</a>
+                              </li>
+                            </ul>
+                          </nav>";
+                        }else{
+                            echo "
+                            </form>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <ul class='navbar-nav me-auto'>
+                              <li class='nav-item'>
+                                <a href='#' class='nav-link'>Welcome Guest</a>
+                              </li>
+                              <li class='nav-item'>
+                                <a href='logout.php' class='nav-link'>Logout</a>
+                              </li>
+                            </ul>
+                          </nav>";
+                        }
+                        
+                        ?>
+                        <!-- <a class="nav-link disabled" aria-disabled="true">
+                            <button class="btn btn-outline-success" type="submit">Login</button></a> -->
                     </form>
                     </ul>
                 </div>
