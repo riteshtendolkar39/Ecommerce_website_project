@@ -71,21 +71,30 @@ session_start();
                     </ul>
                     <form class="d-flex" role="login">
                     <?php
+            // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
+
+            //username
+            $user_ip = getIPAddress();
+            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+            $result_name = mysqli_query($con, $select_query_name);
+            $row_name = mysqli_fetch_assoc($result_name);
+            $username = $row_name['username'];
+
             if (!isset($_SESSION['user_email'])) {
-                echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
-                
-                </form>
-                </ul>
-            </div>
-        </div>
-    </nav>
-                <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
-                <ul class='navbar-nav me-auto'>
-                  <li class='nav-item'>
-                    <a href='#' class='nav-link'>Welcome Guest</a>
-                  </li>
-                </ul>
-              </nav>";
+              echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
+              
+              </form>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <ul class='navbar-nav me-auto'>
+                              <li class='nav-item'>
+                                <a href='#' class='nav-link'>Welcome Guest</a>
+                              </li>
+                            </ul>
+                          </nav>";
             } else {
               echo "
                             </form>
@@ -96,9 +105,9 @@ session_start();
                             <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
                             <ul class='navbar-nav me-auto'>
                               <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome Guest</a>
+                                <a href='#' class='nav-link'>Welcome " . $username . "</a>
                               </li>
-                              <li class='nav-item'>
+                              <li class='nav-item ms-2'>
                                 <a href='./user/logout.php' class='nav-link'>Logout</a>
                               </li>
                             </ul>
@@ -127,7 +136,6 @@ session_start();
             <div class="row">
                 <form action="" method="post">
                     <table class="table table-bordered text-center">
-                        <tbody>
                             <!-- php code to display dynamic data  -->
                             <?php
                             $get_ip_address = getIPAddress();
@@ -145,7 +153,7 @@ session_start();
                                     <th>Remove</th>
                                     <th colspan='2'>Operations</th>
                                 </tr>
-                             </thead>";
+                             </thead> <tbody>";
                                 while ($row = mysqli_fetch_array($result)) {
                                     $product_id = $row['product_id'];
                                     $select_products = "Select * from `products` where product_id=$product_id";

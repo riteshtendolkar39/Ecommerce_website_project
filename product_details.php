@@ -1,6 +1,7 @@
 <?php
 include('include/connect.php');
 include('functions/common_function.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,10 +73,20 @@ body{
 
                     </ul>
                     <form class="d-flex" role="login">
-                    <?php 
-                        if(!isset($_SESSION['user_email'])){
-                            echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
-                            </form>
+                    <?php
+            // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
+
+            //username
+            $user_ip = getIPAddress();
+            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+            $result_name = mysqli_query($con, $select_query_name);
+            $row_name = mysqli_fetch_assoc($result_name);
+            $username = $row_name['username'];
+
+            if (!isset($_SESSION['user_email'])) {
+              echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
+              
+              </form>
                             </ul>
                         </div>
                     </div>
@@ -86,10 +97,9 @@ body{
                                 <a href='#' class='nav-link'>Welcome Guest</a>
                               </li>
                             </ul>
-                          </nav>
-                            ";
-                        }else{
-                            echo "
+                          </nav>";
+            } else {
+              echo "
                             </form>
                             </ul>
                         </div>
@@ -98,17 +108,16 @@ body{
                             <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
                             <ul class='navbar-nav me-auto'>
                               <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome Guest</a>
+                                <a href='#' class='nav-link'>Welcome " . $username . "</a>
                               </li>
-                              <li class='nav-item'>
+                              <li class='nav-item ms-2'>
                                 <a href='./user/logout.php' class='nav-link'>Logout</a>
                               </li>
                             </ul>
                           </nav>";
-                        }
-                        
-                        ?>
-                    </form>
+            }
+
+            ?>                    </form>
                     </ul>
                 </div>
             </div>

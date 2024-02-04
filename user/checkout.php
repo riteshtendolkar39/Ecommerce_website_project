@@ -1,5 +1,19 @@
 <?php
 include('../include/connect.php');
+function getip() {  
+    //whether ip is from the share internet  
+     if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
+                $ip = $_SERVER['HTTP_CLIENT_IP'];  
+        }  
+    //whether ip is from the proxy  
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];  
+     }  
+    else{  
+             $ip = $_SERVER['REMOTE_ADDR'];  
+     }  
+     return $ip;  
+  }  
 session_start();
 ?>
 <!DOCTYPE html>
@@ -18,6 +32,13 @@ session_start();
 
     <!--css files-->
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .logo{
+    width:3%;
+    height:3%;
+    border-radius:25px;
+}
+    </style>
 </head>
 
 <body>
@@ -56,10 +77,20 @@ session_start();
 
                     </ul>
                     <form class="d-flex" role="login">
-                        <?php
-                        if (!isset($_SESSION['user_email'])) {
-                            echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
-                            </form>
+                    <?php
+            // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
+
+            //username
+            $user_ip = getip();
+            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+            $result_name = mysqli_query($con, $select_query_name);
+            $row_name = mysqli_fetch_assoc($result_name);
+            $username = $row_name['username'];
+
+            if (!isset($_SESSION['user_email'])) {
+              echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='user_login.php'>Login</a></button>
+              
+              </form>
                             </ul>
                         </div>
                     </div>
@@ -71,8 +102,8 @@ session_start();
                               </li>
                             </ul>
                           </nav>";
-                        } else {
-                            echo "
+            } else {
+              echo "
                             </form>
                             </ul>
                         </div>
@@ -81,16 +112,16 @@ session_start();
                             <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
                             <ul class='navbar-nav me-auto'>
                               <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome Guest</a>
+                                <a href='#' class='nav-link'>Welcome " . $username . "</a>
                               </li>
-                              <li class='nav-item'>
+                              <li class='nav-item ms-2'>
                                 <a href='logout.php' class='nav-link'>Logout</a>
                               </li>
                             </ul>
                           </nav>";
-                        }
+            }
 
-                        ?>
+            ?>
                         <!-- <a class="nav-link disabled" aria-disabled="true">
                             <button class="btn btn-outline-success" type="submit">Login</button></a> -->
                     </form>

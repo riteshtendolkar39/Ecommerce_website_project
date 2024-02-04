@@ -75,6 +75,13 @@ session_start();
                     </ul>
                     <form class="d-flex" role="login">
                         <?php
+                                    //username
+            $user_ip = getIPAddress();
+            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+            $result_name = mysqli_query($con, $select_query_name);
+            $row_name = mysqli_fetch_assoc($result_name);
+            $username = $row_name['username'];
+            
                         if (!isset($_SESSION['user_email'])) {
                             echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
                             
@@ -100,7 +107,7 @@ session_start();
                             <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
                             <ul class='navbar-nav me-auto'>
                               <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome Guest</a>
+                                <a href='#' class='nav-link'>Welcome ".$username."</a>
                               </li>
                               <li class='nav-item'>
                                 <a href='./user/logout.php' class='nav-link'>Logout</a>

@@ -62,9 +62,17 @@ session_start();
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./user/user_registration.php">Register</a>
-            </li>
+            <?php
+            if(isset($_SESSION['user_email'])){
+              echo "            <li class='nav-item'>
+              <a class='nav-link' href='./user/Profile.php'>My Profile</a>
+            </li>";
+            }else{
+              echo "            <li class='nav-item'>
+              <a class='nav-link' href='./user/user_registration.php'>Register</a>
+            </li>";
+            }
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
             </li>
