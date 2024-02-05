@@ -85,11 +85,7 @@ session_start();
             // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
 
             //username
-            $user_ip = getIPAddress();
-            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
-            $result_name = mysqli_query($con, $select_query_name);
-            $row_name = mysqli_fetch_assoc($result_name);
-            $username = $row_name['username'];
+
 
             if (!isset($_SESSION['user_email'])) {
               echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
@@ -107,6 +103,11 @@ session_start();
                             </ul>
                           </nav>";
             } else {
+              $user_ip = getIPAddress();
+              $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+              $result_name = mysqli_query($con, $select_query_name);
+              $row_name = mysqli_fetch_assoc($result_name);
+              $username = $row_name['username'];
               echo "
                             </form>
                             </ul>

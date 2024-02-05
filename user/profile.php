@@ -176,6 +176,9 @@ $user_image = $row_image['user_image'];
                 if (isset($_GET['my_orders'])) {
                     include('./my_order.php');
                 }
+                if(isset($_GET['delete_account'])){
+                    include('./delete_account.php');
+                }
                 ?>
             </div>
             <div class="col-md-2">

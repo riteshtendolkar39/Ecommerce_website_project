@@ -1,3 +1,7 @@
+<?php
+include('../include/connect.php');
+include('../functions/common_function.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +26,13 @@
         .footer {
             position: absolute;
             bottom: 0;
+        }
+        body{
+            overflow-x:hidden;
+        }
+        .product_img{
+            width:10%;
+            object-fit:contain;
         }
     </style>
 </head>
@@ -57,7 +68,7 @@
                 </div>
                 <div class="button text-center">
                     <button class="mx-1"><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert Products</a></button>
-                    <button class="mx-1"><a href="" class="nav-link text-light bg-info my-1">View Products</a></button>
+                    <button class="mx-1"><a href="index.php?view_products" class="nav-link text-light bg-info my-1">View Products</a></button>
                     <button class="mx-1"><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert Categories</a></button>
                     <button class="mx-1"><a href="" class="nav-link text-light bg-info my-1">View Categories</a></button>
                     <button class="mx-1"><a href="index.php?insert_subcat" class="nav-link text-light bg-info my-1">Insert Sub-Categories</a></button>
@@ -79,12 +90,16 @@
             if (isset($_GET['insert_subcat'])) {
                 include('insert_subcat.php');
             }
+            if (isset($_GET['view_products'])) {
+                include('./view_products.php');
+            }
             ?>
         </div>
         <!--last child-->
-        <div class="bg-info text-white py-3 text-center footer">
+        <!-- <div class="bg-info text-white py-3 text-center footer">
             <p>Copyright © Books 2024 Developed By: Ritesh & Vinod</p>
-        </div>
+        </div> -->
+        <?php include('../footer/footer.php') ?>
     </div>
     <!-- bootstrap js link-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

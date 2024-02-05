@@ -61,9 +61,17 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="./user/user_registration.php">Register</a>
-                        </li>
+                        <?php
+            if(isset($_SESSION['user_email'])){
+              echo "            <li class='nav-item'>
+              <a class='nav-link' href='./user/Profile.php'>My Profile</a>
+            </li>";
+            }else{
+              echo "            <li class='nav-item'>
+              <a class='nav-link' href='./user/user_registration.php'>Register</a>
+            </li>";
+            }
+            ?>
                         <li class="nav-item">
                             <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
                         </li>
@@ -73,12 +81,6 @@ session_start();
                     <?php
             // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
 
-            //username
-            $user_ip = getIPAddress();
-            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
-            $result_name = mysqli_query($con, $select_query_name);
-            $row_name = mysqli_fetch_assoc($result_name);
-            $username = $row_name['username'];
 
             if (!isset($_SESSION['user_email'])) {
               echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
@@ -96,6 +98,12 @@ session_start();
                             </ul>
                           </nav>";
             } else {
+                            //username
+            $user_ip = getIPAddress();
+            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+            $result_name = mysqli_query($con, $select_query_name);
+            $row_name = mysqli_fetch_assoc($result_name);
+            $username = $row_name['username'];
               echo "
                             </form>
                             </ul>
