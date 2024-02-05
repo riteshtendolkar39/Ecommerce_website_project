@@ -49,7 +49,7 @@
                 ?>
                 </td>
                 <td class='bg-secondary text-light'><?php echo $status ?></td>
-                <td class='bg-secondary text-light'><a href='' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
+                <td class='bg-secondary text-light'><a href='index.php?edit_products' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
                 <td class='bg-secondary text-light'><a href='' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
             </tr>
             <?php
