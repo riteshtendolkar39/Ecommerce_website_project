@@ -52,4 +52,6 @@ $result_pending_orders=mysqli_query($con,$insert_pending_orders);
 //delete items from cart
 $empty_cart="delete from `cart_details` where ip_address='$get_ip_address'";
 $result_delete=mysqli_query($con,$empty_cart);
+
+
 ?>
