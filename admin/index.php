@@ -76,8 +76,8 @@ include('../functions/common_function.php');
                     <button class="mx-1"><a href="index.php?insert_subcat" class="nav-link text-light bg-info my-1">Insert Sub-Categories</a></button>
                     <button class="mx-1"><a href="index.php?view_subcat" class="nav-link text-light bg-info my-1">View Sub-Categories</a></button>
                     <button class="mx-1"><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All Orders</a></button>
-                    <button class="mx-1"><a href="" class="nav-link text-light bg-info my-1">All Payments</a></button>
-                    <button class="mx-1"><a href="" class="nav-link text-light bg-info my-1">List users</a></button>
+                    <button class="mx-1"><a href="index.php?lit_payments" class="nav-link text-light bg-info my-1">All Payments</a></button>
+                    <button class="mx-1"><a href="index.php?list_users" class="nav-link text-light bg-info my-1">List users</a></button>
                     <button class="mx-1"><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
                 </div>
             </div>
@@ -121,6 +121,18 @@ include('../functions/common_function.php');
             }
             if (isset($_GET['list_orders'])) {
                 include('./list_orders.php');
+            }
+            if (isset($_GET['delete_orders'])) {
+                include('./delete_orders.php');
+            }
+            if (isset($_GET['lit_payments'])) {
+                include('./lit_payments.php');
+            }
+            if (isset($_GET['delete_payments'])) {
+                include('./delete_payments.php');
+            }
+            if (isset($_GET['list_users'])) {
+                include('./list_users.php');
             }
             ?>
         </div>
