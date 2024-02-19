@@ -1,6 +1,7 @@
 <?php
 include('../include/connect.php');
 include('../functions/common_function.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,8 +50,15 @@ include('../functions/common_function.php');
                 <nav class="navbar navbar-expand-lg bg-info">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Welcome Guest</a>
-                        </li>
+                        <?php
+$email=$_SESSION['admin_email'];
+$select_query="select * from `admin_table` where admin_email='$email'";
+$result=mysqli_query($con,$select_query);
+$row_data=mysqli_fetch_assoc($result);
+$admin_name=$row_data['admin_name'];
+echo "                            <a href='index.php' class='nav-link'>Welcome $admin_name</a>
+";
+?>                        </li>
                     </ul>
                 </nav>
             </div>
@@ -66,8 +74,15 @@ include('../functions/common_function.php');
             <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
                 <div class="px-5">
                     <a href="#"><img src="../images/avatar.png" class="admin_image"></a>
-                    <p class="text-light text-center">Admin Name</p>
-                </div>
+                    <?php
+$email=$_SESSION['admin_email'];
+$select_query="select * from `admin_table` where admin_email='$email'";
+$result=mysqli_query($con,$select_query);
+$row_data=mysqli_fetch_assoc($result);
+$admin_name=$row_data['admin_name'];
+echo "                            <p class='text-light text-center'>$admin_name</p>
+";
+?>                </div>
                 <div class="button text-center">
                     <button class="mx-1"><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert Products</a></button>
                     <button class="mx-1"><a href="index.php?view_products" class="nav-link text-light bg-info my-1">View Products</a></button>
@@ -78,7 +93,14 @@ include('../functions/common_function.php');
                     <button class="mx-1"><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All Orders</a></button>
                     <button class="mx-1"><a href="index.php?lit_payments" class="nav-link text-light bg-info my-1">All Payments</a></button>
                     <button class="mx-1"><a href="index.php?list_users" class="nav-link text-light bg-info my-1">List users</a></button>
-                    <button class="mx-1"><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
+                    <?php
+                        if (!isset($_SESSION['admin_email'])) {
+                            echo "<script>window.open('admin_login.php','_self')</script>";
+                        } else {
+                            echo "                    <button class='mx-1'><a href='admin_login.php' class='nav-link text-light bg-info my-1'>Logout</a></button>'                            ";
+                        }
+
+                        ?>
                 </div>
             </div>
         </div>
@@ -133,6 +155,9 @@ include('../functions/common_function.php');
             }
             if (isset($_GET['list_users'])) {
                 include('./list_users.php');
+            }
+            if (isset($_GET['delete_user'])) {
+                include('./delete_user.php');
             }
             ?>
         </div>

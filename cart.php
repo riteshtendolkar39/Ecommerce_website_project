@@ -184,6 +184,7 @@ session_start();
                                             <?php
                                             // update cart
                                             $get_ip_address = getIPAddress();
+                                            // echo $get_ip_address;
                                             if (isset($_POST['update_cart'])) {
                                                 $quantities = $_POST['qty'];
                                                 $update_cart = "update `cart_details` set quantity=$quantities where ip_address='$get_ip_address'";
