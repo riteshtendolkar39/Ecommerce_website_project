@@ -29,6 +29,21 @@ session_start();
     body {
       overflow-x: hidden;
     }
+    .title {
+    height: 25vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./book.jpg');
+    text-align: center;
+    color: white;
+    padding: 10vw;
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+    .title {
+        height: auto; /* Adjust height as needed */
+        padding: 5vw; /* Reduce padding for smaller screens */
+    }
+}
   </style>
 </head>
 
